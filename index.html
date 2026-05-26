@@ -571,7 +571,41 @@
     .bike-cta:hover { background: var(--orange); }
 
     .bike-card.hidden { display: none; }
-  </style>
+  
+  /* ===== HERO BRIGHTNESS ENHANCEMENTS ===== */
+  .hero h1 {
+    color: #ffffff;
+    font-weight: 900;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  }
+  .hero h1 .highlight {
+    color: #ffa020;
+    text-shadow: 0 0 30px rgba(255,160,32,0.6);
+  }
+  .hero p {
+    color: #f0f0f0;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  }
+  .hero-badge {
+    background-color: #ff9000;
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 3px 15px rgba(255,144,0,0.6);
+  }
+  .hero img {
+    filter: brightness(1.4) contrast(1.05);
+  }
+  .nav-links a {
+    color: #f5f5f5;
+    font-weight: 600;
+  }
+  .nav-logo {
+    color: #ffffff;
+    font-weight: 800;
+  }
+
+</style>
 
   <script>
     function filterCat(cat) {
