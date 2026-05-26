@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מרכז האופניים מזרחי | עפולה</title>
+  <meta name="description" content="מרכז האופניים מזרחי בעפולה — 35 שנה של מקצוענות, שירות אישי ואלפי לקוחות מרוצים. מכירה, תיקון ואביזרים לכל סוגי האופניים." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #111111;
+      --dark:    #1c1c1c;
+      --orange:  #f47c20;
+      --orange2: #e06010;
+      --white:   #ffffff;
+      --light:   #f5f5f5;
+      --gray:    #888888;
+      --radius:  12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; right: 0; left: 0;
+      z-index: 1000;
+      background: rgba(17,17,17,0.96);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--orange); }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #ccc;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 700 !important;
+      font-size: 0.9rem !important;
+      transition: background .2s !important;
+    }
+    .nav-cta:hover { background: var(--orange2) !important; color: var(--white) !important; }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 6% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* decorative background wheel */
+    .hero::before {
+      content: "🚲";
+      position: absolute;
+      font-size: 420px;
+      opacity: 0.04;
+      bottom: -60px;
+      left: -60px;
+      pointer-events: none;
+      filter: grayscale(1);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 22px;
+      max-width: 780px;
+      margin-inline: auto;
+    }
+    .hero h1 .highlight { color: var(--orange); }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #bbbbbb;
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      padding: 14px 34px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: var(--orange2); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid #444;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* IMAGE PLACEHOLDER helper */
+    .img-placeholder {
+      background: #e8e8e8;
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 20px;
+      border: 2px dashed #ccc;
+    }
+    .img-placeholder .icon { font-size: 2.5rem; margin-bottom: 8px; }
+
+    /* ===== STATS BAR ===== */
+    .stats {
+      background: var(--orange);
+      padding: 28px 5%;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: center;
+      color: var(--white);
+    }
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    /* ===== SECTIONS COMMON ===== */
+    section { padding: 80px 5%; }
+
+    .section-tag {
+      display: inline-block;
+      background: #fff3e6;
+      color: var(--orange);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      color: #666;
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    /* ===== ABOUT ===== */
+    .about { background: var(--light); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: #444;
+      margin-bottom: 16px;
+    }
+
+    .about-img {
+      height: 380px;
+      /* תמונה 1: החנות מבחוץ — מומלץ תמונה של חזית החנות ברחוב הרב לוין */
+    }
+
+    /* ===== SERVICES ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      transition: box-shadow .25s, transform .2s;
+      border-top: 4px solid var(--orange);
+    }
+    .service-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.10); transform: translateY(-4px); }
+
+    .service-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ===== WHY US ===== */
+    .why { background: var(--black); }
+    .why .section-tag { background: rgba(244,124,32,0.15); }
+    .why .section-title { color: var(--white); }
+    .why .section-sub { color: #999; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+
+    .why-card {
+      background: var(--dark);
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1px solid #2a2a2a;
+      transition: border-color .2s;
+    }
+    .why-card:hover { border-color: var(--orange); }
+
+    .why-card .num {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .why-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .why-card p {
+      color: #888;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 220px 220px;
+      gap: 14px;
+    }
+
+    .gallery-item:first-child {
+      grid-row: 1 / 3;
+      height: 100%;
+    }
+
+    .gallery-item .img-placeholder {
+      height: 100%;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact { background: var(--light); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .contact-item .ci-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-item h4 {
+      font-size: 0.9rem;
+      color: var(--orange);
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .contact-item p {
+      color: #444;
+      font-size: 0.97rem;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    .hours-table td {
+      padding: 5px 8px 5px 0;
+      font-size: 0.93rem;
+      color: #555;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .hours-table td:first-child { font-weight: 600; color: #333; }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .btn-call {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--orange);
+      color: var(--white);
+      padding: 16px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: background .2s, transform .15s;
+    }
+    .btn-call:hover { background: var(--orange2); transform: translateY(-2px); }
+
+    .btn-waze {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #00d6f7;
+      color: #1a1a2e;
+      padding: 16px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      transition: opacity .2s, transform .15s;
+    }
+    .btn-waze:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    .map-placeholder {
+      height: 320px;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .map-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: var(--radius);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--black);
+      color: #666;
+      text-align: center;
+      padding: 28px 5%;
+      font-size: 0.87rem;
+    }
+    footer strong { color: #aaa; }
+
+    /* ===== DESIGN NOTES (hidden in print/production) ===== */
+    .design-note {
+      background: #fffbe6;
+      border: 1.5px dashed #f4c420;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.83rem;
+      color: #7a6000;
+      margin-top: 14px;
+      font-weight: 600;
+    }
+    .design-note::before { content: "💡 הנחיה: "; font-weight: 900; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item:first-child { grid-row: auto; }
+      .gallery-item .img-placeholder { height: 160px; }
+
+      .stats { gap: 32px; padding: 24px 5%; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 60px 4%; }
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== CATALOG ===== */
+    .cat-tab {
+      background: var(--light);
+      border: 2px solid #e0e0e0;
+      color: #555;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .cat-tab:hover { border-color: var(--orange); color: var(--orange); }
+    .cat-tab.active { background: var(--orange); border-color: var(--orange); color: var(--white); }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .bike-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .bike-card:hover { transform: translateY(-5px); box-shadow: 0 8px 32px rgba(0,0,0,0.13); }
+
+    .bike-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      background: #f9f9f9;
+      padding: 10px;
+    }
+
+    .bike-info {
+      padding: 14px 16px 18px;
+    }
+
+    .bike-cat-label {
+      display: inline-block;
+      background: #fff3e6;
+      color: var(--orange);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-bottom: 8px;
+    }
+
+    .bike-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--black);
+    }
+
+    .bike-cta {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 50px;
+      transition: background .2s;
+    }
+    .bike-cta:hover { background: var(--orange); }
+
+    .bike-card.hidden { display: none; }
+  </style>
+
+  <script>
+    function filterCat(cat) {
+      document.querySelectorAll('.bike-card').forEach(card => {
+        card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
+      });
+      document.querySelectorAll('.cat-tab').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('onclick').includes(cat));
+      });
+    }
+  </script>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-logo">
+    <!-- לוגו: החלף את הנתיב לתמונת הלוגו שלך. אם אין לוגו — מחק את שורת ה-img -->
+    <img src="images/logo.png" alt="לוגו מרכז האופניים מזרחי"
+         onerror="this.style.display='none'" />
+    מרכז האופניים <span>מזרחי</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">אודות</a></li>
+    <li><a href="#services">שירותים</a></li>
+    <li><a href="#catalog">קטלוג</a></li>
+    <li><a href="#why">למה אנחנו</a></li>
+    <li><a href="#gallery">גלריה</a></li>
+    <li><a href="#contact" class="nav-cta">צרו קשר</a></li>
+  </ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div>
+    <div class="hero-badge">✦ עפולה והסביבה — משרתים אתכם מ-1989</div>
+    <h1>
+      35 שנה של אופניים,<br />
+      <span class="highlight">מסירות ואהבה לרכיבה</span>
+    </h1>
+    <p>
+      מרכז האופניים מזרחי — הכתובת המוכרת ביותר בעפולה לכל עניין האופניים.
+      מכירה, תיקון, ייעוץ ואביזרים — הכל תחת קורת גג אחת.
+    </p>
+    <div class="hero-buttons">
+      <a href="tel:0522471510" class="btn-primary">📞 התקשרו עכשיו</a>
+      <a href="#services" class="btn-outline">השירותים שלנו</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">35+</div>
+    <div class="stat-label">שנות ניסיון</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">אלפי</div>
+    <div class="stat-label">לקוחות מרוצים</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">שירות אישי ומקצועי</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">עפולה</div>
+    <div class="stat-label">ורחובות הרב לוין</div>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-tag">אודות</div>
+      <h2 class="section-title">משפחת מזרחי —<br />האופניים זה הדם שלנו</h2>
+      <p>
+        כבר מ-1989 משפחת מזרחי מלווה את תושבי עפולה והסביבה ברגעים הכי חשובים על האופניים —
+        מהאופניים הראשונים של הילדים ועד לאופני ההרים המתקדמים ביותר.
+      </p>
+      <p>
+        מה שהתחיל כחנות קטנה ברחוב הרב לוין הפך למרכז העיקרי של כל דבר שקשור לאופניים
+        בצפון הארץ. אנחנו לא רק מוכרים אופניים — אנחנו מייעצים, מתקנים, דואגים ומלווים
+        כל לקוח כאילו הוא בן משפחה.
+      </p>
+      <p>
+        הסוד שלנו? פשוט: יחס אמיתי, מחירים הוגנים ומקצוענות שלא מתפשרת.
+        זה מה שמחזיר אלינו לקוחות שנה אחרי שנה — ומביא אלינו את ילדיהם.
+      </p>
+    </div>
+    <div class="about-img">
+      <!-- תמונה 1 -->
+      <div class="img-placeholder" style="height:380px;">
+        <div class="icon">🏪</div>
+        <div>תמונה של חזית החנות</div>
+        <div>רחוב הרב לוין, עפולה</div>
+      </div>
+      <p class="design-note">
+        שים כאן תמונה של חזית החנות מהרחוב — כולל השלט. זה בונה אמון מיידי ומראה שמדובר בעסק אמיתי עם פנים.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+  <div style="text-align:center;">
+    <div class="section-tag">מה אנחנו עושים</div>
+    <h2 class="section-title">השירותים שלנו</h2>
+    <p class="section-sub" style="margin-inline:auto;">
+      כל מה שאופניים צריכים — במקום אחד, עם ידיים מקצועיות ולב גדול.
+    </p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🚲</div>
+      <h3>מכירת אופניים חדשים</h3>
+      <p>
+        מבחר עשיר של אופניים לכל גיל וכל שטח — ילדים, עיר, הרים, חשמליים ועוד.
+        נמצא לכם את האופניים המושלמים לפי תקציב וצרכים.
+      </p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>תיקון ותחזוקה</h3>
+      <p>
+        מעבדה מאובזרת ומכונאי מנוסה שיחזיר את האופניים שלכם לכביש מהר וביעילות.
+        מתקנים כל תקלה — מגלגל עד הילוכים.
+      </p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <h3>אביזרים וחלקים</h3>
+      <p>
+        קסדות, נעילות, תאורה, מחזיקי בקבוק, פעמונים, צמיגים וכל דבר שתחשבו עליו.
+        מלאי עשיר תמיד בחנות.
+      </p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💬</div>
+      <h3>ייעוץ מקצועי חינם</h3>
+      <p>
+        לא בטוחים מה לקנות? בואו לשאול. נשב איתכם, נבין מה אתם צריכים ונמליץ
+        בכנות — בלי לחץ ובלי מכירות מיותרות.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATALOG ===== -->
+<section id="catalog" style="background:#fff;">
+  <div style="text-align:center; margin-bottom:36px;">
+    <div class="section-tag">הקטלוג שלנו</div>
+    <h2 class="section-title">אופניים לכל אחד ואחת</h2>
+    <p class="section-sub" style="margin-inline:auto;">
+      אנחנו מציעים מגוון רחב — לילדים, נשים, גברים, הרים ועיר. ללא מחירים באתר — צרו קשר לקבלת הצעה אישית.
+    </p>
+  </div>
+
+  <!-- כפתורי טאב -->
+  <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:36px;">
+    <button class="cat-tab active" onclick="filterCat('mountains')">אופני הרים</button>
+    <button class="cat-tab" onclick="filterCat('children')">אופני ילדים</button>
+    <button class="cat-tab" onclick="filterCat('women')">אופני נשים</button>
+    <button class="cat-tab" onclick="filterCat('city')">אופני עיר</button>
+    <button class="cat-tab" onclick="filterCat('all')">הכל</button>
+  </div>
+
+  <div class="catalog-grid" id="catalogGrid">
+
+    <!-- ===== הרים ===== -->
+    <div class="bike-card" data-cat="mountains">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/0bfa8d1534446499e2c7ab8ebbc50e95777481c1.jpg" alt="אופני הרים RL LUIGI 10" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">הרים</span>
+        <h3>RL LUIGI 10</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="mountains">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/9db6359fb1cffb195c8448c429d7701d8fe58e15.jpeg" alt="אופני הרים RL LUIGI 9" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">הרים</span>
+        <h3>RL LUIGI 9</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="mountains">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/ff96b205cf8e81b3e56025d4d108d2589cab6dcd.png" alt="אופני הרים RL LUIGI FS" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">הרים</span>
+        <h3>RL LUIGI FS</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="mountains">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/6345f45a9673ca0cf0d1ecc37e3454057762f666.png" alt="אופני הרים RL LUIGI X11" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">הרים</span>
+        <h3>RL LUIGI X11</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="mountains">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/1e3165e95b6c87ef6c671cafadcb0f7fe1f3ba00.png" alt="אופני הרים RL VALERIO 29" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">הרים</span>
+        <h3>RL VALERIO 29</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="mountains">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/a53a12e08b040476a9e3ffc8c26167425a04f447.png" alt="אופני הרים RL XR11" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">הרים</span>
+        <h3>RL XR11</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="mountains">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/3e5bae3a45b1dbc78bf100d400efe0be88c14e86.jpeg" alt="אופני הרים RL VALERIO 7SP 27.5" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">הרים</span>
+        <h3>RL VALERIO 7SP 27.5</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="mountains">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/8cdf53c8b4d1321e940262e5dabab48bbeec4b10.jpg" alt="אופני הרים RL LUIGI 9 27.5" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">הרים</span>
+        <h3>RL LUIGI 9 27.5</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <!-- ===== ילדים ===== -->
+    <div class="bike-card" data-cat="children">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/7e79296e7be5195185e959c150605393872a9959.png" alt="אופני ילדים RL CAPPI 7 24" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">ילדים</span>
+        <h3>RL CAPPI 7 24"</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="children">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/c6cd7c9ea9ae46e41b03a032b3bc92ed625f79ab.jpeg" alt="אופני ילדים RL CAPPI PRO 24" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">ילדים</span>
+        <h3>RL CAPPI PRO 24"</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="children">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/27c3aef1323c368a0489ce0b204e4a0516f0f102.png" alt="אופני ילדים RL CATTIVIO 20" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">ילדים</span>
+        <h3>RL CATTIVIO 20"</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="children">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/e1c88d6ff33929c72d54bb6381cfca35bd559053.png" alt="אופני ילדים RL ZOE 16" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">ילדים</span>
+        <h3>RL ZOE 16"</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="children">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/2f7aee8d86d0b3fd8b8b73367e4ca49c20b06e04.png" alt="אופני ילדים RL ZOE 20" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">ילדים</span>
+        <h3>RL ZOE 20"</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="children">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/7c4af3163b13c2c909cb97b5c5d4345af0a972d2.jpeg" alt="אופני ילדים RL BELLA PRO 26" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">ילדים</span>
+        <h3>RL BELLA PRO 26"</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="children">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/2d9a946103c507cbdae3bb880cb7cc6c6a5707f2.png" alt="אופני ילדים RL BELLA 26" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">ילדים</span>
+        <h3>RL BELLA 26"</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <!-- ===== נשים ===== -->
+    <div class="bike-card" data-cat="women">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/4b17a789ba69dba63e1903dbef30df0c95504def.png" alt="אופני נשים RL MIKA 7" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">נשים</span>
+        <h3>RL MIKA 7</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="women">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/8000f9c0ba17e337e915d0569167e8bd2bf978d1.jpg" alt="אופני נשים RL MIKA PRO" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">נשים</span>
+        <h3>RL MIKA PRO</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="women">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/98968b7f1770c75d22cabd8adae1b941a99834f2.png" alt="אופני נשים RL MIKA 8 PRO" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">נשים</span>
+        <h3>RL MIKA 8 PRO</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="women">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/704a58e4fc8b342d1922f4e457c35125b9da4d20.png" alt="אופני הרים לנשים RL VALERIO LADY 27.5" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">נשים</span>
+        <h3>RL VALERIO LADY 27.5</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <!-- ===== עיר ===== -->
+    <div class="bike-card" data-cat="city">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/05858ee910f4fba6c479e992e221fcde446ba17b.png" alt="אופני עיר RL VALERIO CITY" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">עיר</span>
+        <h3>RL VALERIO CITY</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="city">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/46d7709e7c60b23b076f3a1ab0c45be53046ee14.jpg" alt="אופני עיר RL LUIGI C10" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">עיר</span>
+        <h3>RL LUIGI C10</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="city">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/eceb8982f3f4a23fd7392227f7003f9e89607eee.png" alt="אופני עיר RL MATEO" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">עיר</span>
+        <h3>RL MATEO</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="city">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/f407bfc7f0cbd31213b5b9d871c00d157eabf8da.jpeg" alt="אופני עיר מתקפלים RL ROMIX" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">עיר</span>
+        <h3>RL ROMIX (מתקפל)</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+    <div class="bike-card" data-cat="city">
+      <img src="https://cdn.istores.co.il/image/upload/if_ar_gt_2:1/c_mpad,h_504,w_450,q_100/c_fill,h_504,w_525/if_else/c_pad,h_504,q_100,w_450/if_end/clients/147217/bd59419b71cb72fe2b79d2ebb9d641d4303a10e4.jpeg" alt="אופני עיר RL MATEO PRO" loading="lazy" />
+      <div class="bike-info">
+        <span class="bike-cat-label">עיר</span>
+        <h3>RL MATEO PRO</h3>
+        <a href="tel:0522471510" class="bike-cta">לפרטים ומחיר</a>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="text-align:center; color:#888; font-size:0.9rem; margin-top:28px;">
+    * המחירים ניתנים בפנייה ישירה לחנות — כדי לתת לכם את ההצעה הטובה ביותר.
+  </p>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section class="why" id="why">
+  <div style="text-align:center;">
+    <div class="section-tag">למה לבחור בנו</div>
+    <h2 class="section-title" style="color:white;">למה אלפי לקוחות<br />חוזרים אלינו שנה אחרי שנה?</h2>
+    <p class="section-sub" style="margin-inline:auto;">
+      יש הרבה חנויות אופניים — אבל רק אחת שגדלה עם עפולה מזה 35 שנה.
+    </p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="num">35</div>
+      <h3>שנות ניסיון</h3>
+      <p>
+        ניסיון של עשרות שנים בשטח — אנחנו ראינו כל תקלה, כל סוג אופניים וכל לקוח.
+        הניסיון שלנו עובד בשבילכם.
+      </p>
+    </div>
+    <div class="why-card">
+      <div class="num">₪</div>
+      <h3>מחיר הוגן תמיד</h3>
+      <p>
+        אין מחירים מנופחים ואין הפתעות בקופה. אנחנו מאמינים שעסק טוב בנוי על
+        לקוחות חוזרים — ולא על עסקה אחת.
+      </p>
+    </div>
+    <div class="why-card">
+      <div class="num">❤️</div>
+      <h3>יחס אישי ומשפחתי</h3>
+      <p>
+        אצלנו לא תהיה מספר בתור. נזכור את שמך, את האופניים שלך ואת ההיסטוריה שלך —
+        כי ככה מתנהגים עם בני משפחה.
+      </p>
+    </div>
+    <div class="why-card">
+      <div class="num">✓</div>
+      <h3>מקצוענות ללא פשרות</h3>
+      <p>
+        אנחנו לא מבצעים תיקון שאנחנו לא מאה אחוז בטוחים בו. עבודה נקייה,
+        חלקים איכותיים ואחריות על כל עבודה.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery">
+  <div style="text-align:center; margin-bottom:40px;">
+    <div class="section-tag">גלריה</div>
+    <h2 class="section-title">אצלנו בחנות</h2>
+    <p class="section-sub" style="margin-inline:auto;">
+      הציוד, המעבדה והאנשים שמאחורי השירות.
+    </p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <div class="img-placeholder">
+        <div class="icon">🏪</div>
+        <div>תמונה רחבה — פנים החנות</div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="img-placeholder">
+        <div class="icon">🔧</div>
+        <div>המעבדה בפעולה</div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="img-placeholder">
+        <div class="icon">🚲</div>
+        <div>מבחר האופניים</div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="img-placeholder">
+        <div class="icon">😊</div>
+        <div>לקוח מרוצה</div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="img-placeholder">
+        <div class="icon">⚙️</div>
+        <div>אביזרים וחלקים</div>
+      </div>
+    </div>
+  </div>
+  <p class="design-note" style="margin-top:20px;">
+    החלף את הריבועים האפורים בתמונות אמיתיות מהחנות: חזית, פנים, מעבדה, אביזרים ולקוח מרוצה. תמונות אמיתיות = אמינות כפולה!
+  </p>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div style="text-align:center; margin-bottom:40px;">
+    <div class="section-tag">דברו איתנו</div>
+    <h2 class="section-title">בואו אלינו — נשמח לראותכם</h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>פרטי התקשרות</h3>
+
+      <div class="contact-item">
+        <div class="ci-icon">📍</div>
+        <div>
+          <h4>כתובת</h4>
+          <p>רחוב הרב לוין, עפולה</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci-icon">📞</div>
+        <div>
+          <h4>טלפון</h4>
+          <p><a href="tel:0522471510" style="color:#444; font-weight:600;">052-247-1510</a></p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci-icon">🕐</div>
+        <div>
+          <h4>שעות פעילות</h4>
+          <table class="hours-table">
+            <tr><td>ראשון – חמישי</td><td>[ הזן שעות ]</td></tr>
+            <tr><td>שישי</td><td>[ הזן שעות ]</td></tr>
+            <tr><td>שבת</td><td>סגור</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="cta-buttons">
+        <a href="tel:0522471510" class="btn-call">
+          📞 חייגו עכשיו — 052-247-1510
+        </a>
+        <a
+          href="https://waze.com/ul?q=מרכז+האופניים+מזרחי+עפולה&navigate=yes"
+          target="_blank"
+          rel="noopener"
+          class="btn-waze"
+        >
+          🗺️ נווטו אלינו ב-Waze
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <!-- מפה של גוגל — להחלפה בקישור אמיתי -->
+      <div class="map-placeholder">
+        <iframe
+          src="https://maps.google.com/maps?q=רחוב+הרב+לוין+עפולה&output=embed&z=15"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="מיקום מרכז האופניים מזרחי">
+        </iframe>
+      </div>
+      <p class="design-note">
+        המפה תוצג אוטומטית לאחר שתעלה את האתר לרשת. אם אתה בודק ב-HTML ישיר — תראה מפה אחרי עליית האתר.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>
+    <strong>מרכז האופניים מזרחי</strong> — רחוב הרב לוין, עפולה &nbsp;|&nbsp;
+    <a href="tel:0522471510" style="color:#888;">052-247-1510</a>
+  </p>
+  <p style="margin-top:6px;">© 2024 כל הזכויות שמורות למרכז האופניים מזרחי</p>
+</footer>
+
+</body>
+</html>
