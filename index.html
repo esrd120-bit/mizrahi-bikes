@@ -94,6 +94,9 @@
     .hero {
       min-height: 100vh;
       background: var(--black);
+      background-image: url('1.png');
+      background-size: cover;
+      background-position: center;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -103,16 +106,12 @@
       overflow: hidden;
     }
 
-    /* decorative background wheel */
     .hero::before {
-      content: "🚲";
+      content: '';
       position: absolute;
-      font-size: 420px;
-      opacity: 0.04;
-      bottom: -60px;
-      left: -60px;
+      inset: 0;
+      background: rgba(0,0,0,0.62);
       pointer-events: none;
-      filter: grayscale(1);
     }
 
     .hero-badge {
@@ -594,7 +593,7 @@
 <nav>
   <div class="nav-logo">
     <!-- לוגו: החלף את הנתיב לתמונת הלוגו שלך. אם אין לוגו — מחק את שורת ה-img -->
-    <img src="images/logo.png" alt="לוגו מרכז האופניים מזרחי"
+    <img src="לוגו 1.png" alt="לוגו מרכז האופניים מזרחי"
          onerror="this.style.display='none'" />
     מרכז האופניים <span>מזרחי</span>
   </div>
@@ -668,15 +667,7 @@
       </p>
     </div>
     <div class="about-img">
-      <!-- תמונה 1 -->
-      <div class="img-placeholder" style="height:380px;">
-        <div class="icon">🏪</div>
-        <div>תמונה של חזית החנות</div>
-        <div>רחוב הרב לוין, עפולה</div>
-      </div>
-      <p class="design-note">
-        שים כאן תמונה של חזית החנות מהרחוב — כולל השלט. זה בונה אמון מיידי ומראה שמדובר בעסק אמיתי עם פנים.
-      </p>
+      <img src="כניסה חנות.jpeg" alt="חזית מרכז האופניים מזרחי" style="width:100%; height:380px; object-fit:cover; border-radius:12px;" />
     </div>
   </div>
 </section>
@@ -1030,39 +1021,37 @@
   </div>
   <div class="gallery-grid">
     <div class="gallery-item">
-      <div class="img-placeholder">
-        <div class="icon">🏪</div>
-        <div>תמונה רחבה — פנים החנות</div>
-      </div>
+      <img src="צילום חנות 1.jpeg" alt="פנים החנות" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" />
     </div>
     <div class="gallery-item">
-      <div class="img-placeholder">
-        <div class="icon">🔧</div>
-        <div>המעבדה בפעולה</div>
-      </div>
+      <img src="צילום חנות 2.jpeg" alt="פנים החנות" style="width:100%; height:220px; object-fit:cover; border-radius:12px;" />
     </div>
     <div class="gallery-item">
-      <div class="img-placeholder">
-        <div class="icon">🚲</div>
-        <div>מבחר האופניים</div>
-      </div>
+      <img src="כניסה חנות.jpeg" alt="חזית החנות" style="width:100%; height:220px; object-fit:cover; border-radius:12px;" />
     </div>
     <div class="gallery-item">
-      <div class="img-placeholder">
-        <div class="icon">😊</div>
-        <div>לקוח מרוצה</div>
-      </div>
+      <img src="צילום מוסך.jpeg" alt="המוסך" style="width:100%; height:220px; object-fit:cover; border-radius:12px;" />
     </div>
     <div class="gallery-item">
-      <div class="img-placeholder">
-        <div class="icon">⚙️</div>
-        <div>אביזרים וחלקים</div>
-      </div>
+      <img src="צילום תיקון אופניים.jpeg" alt="תיקון אופניים" style="width:100%; height:220px; object-fit:cover; border-radius:12px;" />
     </div>
   </div>
-  <p class="design-note" style="margin-top:20px;">
-    החלף את הריבועים האפורים בתמונות אמיתיות מהחנות: חזית, פנים, מעבדה, אביזרים ולקוח מרוצה. תמונות אמיתיות = אמינות כפולה!
-  </p>
+</section>
+
+<!-- ===== VIDEOS ===== -->
+<section id="videos" style="background:#111;">
+  <div style="text-align:center; margin-bottom:36px;">
+    <div class="section-tag" style="background:rgba(244,124,32,0.15);">סרטונים</div>
+    <h2 class="section-title" style="color:#fff;">תראו אותנו בפעולה</h2>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;">
+    <video controls style="width:100%; border-radius:12px; max-height:340px;">
+      <source src="סרטון 1.mp4" type="video/mp4" />
+    </video>
+    <video controls style="width:100%; border-radius:12px; max-height:340px;">
+      <source src="סרטון 2.mp4" type="video/mp4" />
+    </video>
+  </div>
 </section>
 
 <!-- ===== CONTACT ===== -->
