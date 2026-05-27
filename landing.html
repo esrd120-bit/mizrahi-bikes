@@ -10,6 +10,7 @@
     body { font-family: 'Heebo', sans-serif; background: #111; color: #fff; direction: rtl; overflow-x: hidden; }
     .hero { min-height: 100vh; background: linear-gradient(135deg, #111 0%, #1a1a1a 50%, #0d0d0d 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(255,102,0,0.18) 0%, transparent 70%); pointer-events: none; }
+    .hero-logo { width: 110px; height: 110px; object-fit: contain; border-radius: 50%; border: 3px solid rgba(255,102,0,0.4); box-shadow: 0 0 30px rgba(255,102,0,0.25); margin-bottom: 24px; position: relative; z-index: 1; background: #1a1a1a; padding: 8px; }
     .badge { display: inline-block; background: rgba(255,102,0,0.15); border: 1.5px solid #ff6600; color: #ff6600; font-size: 0.85rem; font-weight: 600; padding: 7px 22px; border-radius: 50px; margin-bottom: 28px; position: relative; z-index: 1; }
     .hero h1 { font-size: clamp(2.6rem, 7vw, 5rem); font-weight: 900; line-height: 1.1; margin-bottom: 18px; position: relative; z-index: 1; }
     .hero h1 span { color: #ff6600; }
@@ -69,6 +70,7 @@
 </head>
 <body>
 <section class="hero">
+  <img src="%D7%9C%D7%95%D7%92%D7%95.png" alt="לוגו מרכז האופניים מזרחי" class="hero-logo" />
   <div class="badge">&#10022; עפולה והסביבה - משרתים אתכם מ-1989</div>
   <h1>מרכז האופניים<br/><span>מזרחי</span></h1>
   <p>35 שנה של אופניים, מסירות ואהבה לרכיבה. מכירה, תיקון, ייעוץ ואביזרים - הכל תחת קורת גג אחת.</p>
@@ -131,6 +133,7 @@
   <a href="tel:0522471510" class="btn-cta">&#128222; 052-247-1510 - חייגו עכשיו</a>
 </section>
 <footer>
+  <img src="%D7%9C%D7%95%D7%92%D7%95.png" alt="לוגו מרכז האופניים מזרחי" style="width:70px; height:70px; object-fit:contain; border-radius:50%; margin-bottom:12px; opacity:0.85;" />
   <div class="logo-text">מרכז האופניים <span>מזרחי</span></div>
   <p>רחוב הרב לוין, עפולה | 052-247-1510</p>
   <p style="margin-bottom:14px;">א'-ב'-ד'-ה': 09:00-18:00 | ג': 09:00-14:00 | ו': 09:00-13:00</p>
