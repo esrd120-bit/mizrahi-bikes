@@ -93,8 +93,8 @@
     </form>
     <div class="success-msg" id="successMsg">
       <div class="check">&#128232;</div>
-      <h3>נפתח WhatsApp עם ההודעה!</h3>
-      <p>אם WhatsApp לא נפתח אוטומטית,<br/>חייגו אלינו ישירות: 052-247-1510</p>
+      <h3>מעביר אותך לוואטסאפ...</h3>
+      <p>אם לא נפתח אוטומטית,<br/>חייגו: <a href="tel:0522471510" style="color:#25D366;">052-247-1510</a></p>
     </div>
     <p class="privacy-note">&#128274; הפרטים שמורים ואינם מועברים לגורם שלישי</p>
   </div>
@@ -154,15 +154,21 @@
     var name = document.getElementById('clientName').value;
     var phone = document.getElementById('clientPhone').value;
     var topic = document.getElementById('clientTopic').value || 'לא צוין';
-    var msg = 'שלום! פנייה חדשה מדף הנחיתה:%0A%0A' +
-              'שם: ' + encodeURIComponent(name) + '%0A' +
-              'טלפון: ' + encodeURIComponent(phone) + '%0A' +
-              'נושא: ' + encodeURIComponent(topic);
+    var msg = encodeURIComponent(
+      'שלום! פנייה חדשה מדף הנחיתה:
+
+' +
+      'שם: ' + name + '
+' +
+      'טלפון: ' + phone + '
+' +
+      'נושא: ' + topic
+    );
     var waUrl = 'https://wa.me/9720522471510?text=' + msg;
-    window.open(waUrl, '_blank');
     this.style.display = 'none';
     document.getElementById('successMsg').style.display = 'block';
+    window.location.href = waUrl;
   });
 </script>
 </body>
-    </html>
+</html>
