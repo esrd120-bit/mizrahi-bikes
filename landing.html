@@ -25,8 +25,8 @@
     .form-group input::placeholder { color: #666; }
     .form-group input:focus, .form-group select:focus { border-color: #ff6600; }
     .form-group select option { background: #252525; }
-    .btn-submit { width: 100%; background: #ff6600; color: #fff; border: none; border-radius: 12px; padding: 16px; font-size: 1.1rem; font-weight: 700; cursor: pointer; margin-top: 8px; transition: background 0.2s, transform 0.15s; font-family: 'Heebo', sans-serif; }
-    .btn-submit:hover { background: #e55a00; transform: translateY(-2px); }
+    .btn-submit { width: 100%; background: #25D366; color: #fff; border: none; border-radius: 12px; padding: 16px; font-size: 1.1rem; font-weight: 700; cursor: pointer; margin-top: 8px; transition: background 0.2s, transform 0.15s; font-family: 'Heebo', sans-serif; display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .btn-submit:hover { background: #1ebe5d; transform: translateY(-2px); }
     .privacy-note { font-size: 0.75rem; color: #666; text-align: center; margin-top: 14px; }
     .stats-bar { background: #ff6600; padding: 28px 20px; display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
     .stat-item { text-align: center; }
@@ -65,7 +65,7 @@
     footer .links a:hover { color: #ff6600; }
     .success-msg { display: none; text-align: center; padding: 20px; }
     .success-msg .check { font-size: 3rem; margin-bottom: 14px; }
-    .success-msg h3 { font-size: 1.4rem; font-weight: 800; color: #ff6600; margin-bottom: 8px; }
+    .success-msg h3 { font-size: 1.4rem; font-weight: 800; color: #25D366; margin-bottom: 8px; }
     .success-msg p { font-size: 0.95rem; color: #bbb; }
   </style>
 </head>
@@ -81,17 +81,20 @@
     <h2>קבלו הצעת מחיר אישית</h2>
     <p class="sub">השאירו פרטים ונחזור אליכם תוך שעה</p>
     <form id="leadForm">
-      <div class="form-group"><label>שם מלא</label><input type="text" placeholder="למשל: יוסי כהן" required /></div>
-      <div class="form-group"><label>טלפון</label><input type="tel" placeholder="05X-XXXXXXX" required /></div>
+      <div class="form-group"><label>שם מלא</label><input type="text" id="clientName" placeholder="למשל: יוסי כהן" required /></div>
+      <div class="form-group"><label>טלפון</label><input type="tel" id="clientPhone" placeholder="05X-XXXXXXX" required /></div>
       <div class="form-group"><label>מה מעניין אותך?</label>
-        <select><option value="">בחר/י נושא</option><option>קניית אופניים חדשים</option><option>תיקון ותחזוקה</option><option>אביזרים וחלקי חילוף</option><option>ייעוץ מקצועי</option></select>
+        <select id="clientTopic"><option value="">בחר/י נושא</option><option>קניית אופניים חדשים</option><option>תיקון ותחזוקה</option><option>אביזרים וחלקי חילוף</option><option>ייעוץ מקצועי</option></select>
       </div>
-      <button class="btn-submit" type="submit">&#128222; רוצה שתחזרו אלי עכשיו</button>
+      <button class="btn-submit" type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.135 1.528 5.88L0 24l6.306-1.504A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.374l-.36-.214-3.724.888.936-3.617-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+        שלח לי הודעה בוואטסאפ
+      </button>
     </form>
     <div class="success-msg" id="successMsg">
-      <div class="check">&#9989;</div>
-      <h3>קיבלנו! נחזור אליך בהקדם</h3>
-      <p>תודה שפנית למרכז האופניים מזרחי.<br/>נציג יצור איתך קשר תוך שעה.</p>
+      <div class="check">&#128232;</div>
+      <h3>נפתח WhatsApp עם ההודעה!</h3>
+      <p>אם WhatsApp לא נפתח אוטומטית,<br/>חייגו אלינו ישירות: 052-247-1510</p>
     </div>
     <p class="privacy-note">&#128274; הפרטים שמורים ואינם מועברים לגורם שלישי</p>
   </div>
@@ -148,9 +151,18 @@
 <script>
   document.getElementById('leadForm').addEventListener('submit', function(e) {
     e.preventDefault();
+    var name = document.getElementById('clientName').value;
+    var phone = document.getElementById('clientPhone').value;
+    var topic = document.getElementById('clientTopic').value || 'לא צוין';
+    var msg = 'שלום! פנייה חדשה מדף הנחיתה:%0A%0A' +
+              'שם: ' + encodeURIComponent(name) + '%0A' +
+              'טלפון: ' + encodeURIComponent(phone) + '%0A' +
+              'נושא: ' + encodeURIComponent(topic);
+    var waUrl = 'https://wa.me/9720522471510?text=' + msg;
+    window.open(waUrl, '_blank');
     this.style.display = 'none';
     document.getElementById('successMsg').style.display = 'block';
   });
 </script>
 </body>
-  </html>
+    </html>
