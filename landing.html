@@ -1,39 +1,227 @@
-<script>
-  async function sendToMake(name, phone, topic) {
-    const WEBHOOK_URL = 'REPLACE_WITH_YOUR_MAKE_WEBHOOK_URL';
-    try {
-      await fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name,
-          phone: phone,
-          interest: topic,
-          source: 'דף נחיתה'
-        })
-      });
-    } catch (e) {
-      console.log('Make webhook error:', e);
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>מזרחי ביקס – אופניים חשמליים</title>
+    <style>
+          * { box-sizing: border-box; margin: 0; padding: 0; }
+          body {
+                  font-family: 'Segoe UI', Arial, sans-serif;
+                  background: #f5f5f5;
+                  color: #222;
+                  direction: rtl;
+          }
+          header {
+                  background: #1a1a2e;
+                  color: #fff;
+                  padding: 18px 24px;
+                  text-align: center;
+          }
+          header h1 { font-size: 2rem; letter-spacing: 1px; }
+          header p { margin-top: 6px; font-size: 1rem; opacity: 0.85; }
+          .hero {
+                  background: linear-gradient(135deg, #16213e, #0f3460);
+                  color: #fff;
+                  text-align: center;
+                  padding: 60px 20px;
+          }
+          .hero h2 { font-size: 2.2rem; margin-bottom: 14px; }
+          .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 520px; margin: 0 auto 28px; }
+          .hero .cta-btn {
+                  background: #e94560;
+                  color: #fff;
+                  border: none;
+                  padding: 14px 36px;
+                  font-size: 1.1rem;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  text-decoration: none;
+                  display: inline-block;
+                  transition: background 0.2s;
+          }
+          .hero .cta-btn:hover { background: #c73652; }
+          .features {
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  gap: 24px;
+                  padding: 48px 20px;
+                  background: #fff;
+          }
+          .feature-card {
+                  background: #f9f9f9;
+                  border-radius: 10px;
+                  padding: 28px 22px;
+                  max-width: 240px;
+                  text-align: center;
+                  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+          }
+          .feature-card .icon { font-size: 2.4rem; margin-bottom: 12px; }
+          .feature-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+          .feature-card p { font-size: 0.95rem; color: #555; }
+          .form-section {
+                  background: #f0f4ff;
+                  padding: 48px 20px;
+                  text-align: center;
+          }
+          .form-section h2 { font-size: 1.7rem; margin-bottom: 24px; }
+          #leadForm {
+                  background: #fff;
+                  border-radius: 12px;
+                  padding: 32px 28px;
+                  max-width: 440px;
+                  margin: 0 auto;
+                  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+          }
+          #leadForm input,
+          #leadForm select {
+                  width: 100%;
+                  padding: 11px 14px;
+                  margin-bottom: 16px;
+                  border: 1px solid #ccc;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                  font-family: inherit;
+                  direction: rtl;
+          }
+          #leadForm button {
+                  width: 100%;
+                  background: #25d366;
+                  color: #fff;
+                  border: none;
+                  padding: 14px;
+                  font-size: 1.1rem;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  transition: background 0.2s;
+          }
+          #leadForm button:hover { background: #1ab354; }
+          #successMsg {
+                  display: none;
+                  background: #fff;
+                  border-radius: 12px;
+                  padding: 40px 28px;
+                  max-width: 440px;
+                  margin: 0 auto;
+                  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+                  font-size: 1.2rem;
+                  color: #1a1a2e;
+          }
+          #successMsg .big { font-size: 2rem; margin-bottom: 12px; }
+          footer {
+                  background: #1a1a2e;
+                  color: #aaa;
+                  text-align: center;
+                  padding: 20px;
+                  font-size: 0.9rem;
+          }
+        </style>
+  </head>
+  <body>
+
+    <header>
+        <h1>🚲 מזרחי ביקס</h1>
+      <p>המומחים לאופניים חשמליים</p>
+    </header>
+  
+  <section class="hero">
+    <h2>תרגישו את החירות על גלגלים</h2>
+    <p>אופניים חשמליים איכותיים, שירות אישי, ומחירים שלא תמצאו בשום מקום אחר.</p>
+    <a href="#contact" class="cta-btn">השאירו פרטים עכשיו</a>a>
+  </section>section>
+  
+  <section class="features">
+    <div class="feature-card">
+        <div class="icon">⚡</div>div>
+        <h3>ביצועים גבוהים</h3>
+        <p>מנועים חזקים לכל שטח ומרחק.</p>
+    </div>div>
+    <div class="feature-card">
+        <div class="icon">🔋</div>div>
+        <h3>סוללה ארוכה</h3>
+        <p>עד 100 ק"מ בטעינה אחת.</p>
+    </div>div>
+    <div class="feature-card">
+        <div class="icon">🛠️</div>div>
+        <h3>שירות מקצועי</h3>
+        <p>אחריות מלאה ותיקון מהיר.</p>
+    </div>div>
+    <div class="feature-card">
+        <div class="icon">💰</div>div>
+        <h3>מחיר הוגן</h3>
+        <p>הצעות מחיר ללא התחייבות.</p>
+    </div>div>
+  </section>section>
+  
+  <section class="form-section" id="contact">
+    <h2>השאירו פרטים ונחזור אליכם</h2>
+    <div id="leadForm">
+        <input type="text" id="clientName" placeholder="שם מלא" required />
+        <input type="tel" id="clientPhone" placeholder="מספר טלפון" required />
+        <select id="clientTopic">
+              <option value="">במה אתם מתעניינים?</option>option>
+              <option value="רכישת אופניים חשמליים">רכישת אופניים חשמליים</option>option>
+              <option value="תיקון ושירות">תיקון ושירות</option>option>
+              <option value="אביזרים">אביזרים</option>option>
+              <option value="אחר">אחר</option>option>
+        </select>select>
+        <button type="button" onclick="sendWhatsApp()">📲 שלחו הודעה בוואטסאפ</button>button>
+    </div>div>
+    <div id="successMsg">
+        <div class="big">✅</div>div>
+        <strong>תודה! ההודעה נשלחה.</strong><br />
+        ניצור איתך קשר בהקדם.
+    </div>div>
+  </section>section>
+  
+  <footer>
+      <p>© 2026 מזרחי ביקס | כל הזכויות שמורות</p>
+  </footer>
+  
+  <script>
+    async function sendToMake(name, phone, topic) {
+        const WEBHOOK_URL = 'REPLACE_WITH_YOUR_MAKE_WEBHOOK_URL';
+        try {
+              await fetch(WEBHOOK_URL, {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                                name: name,
+                                phone: phone,
+                                interest: topic,
+                                source: 'דף נחיתה'
+                      })
+              });
+        } catch (e) {
+              console.log('Make webhook error:', e);
+        }
     }
-  }
 
-  function sendWhatsApp() {
-    var name = document.getElementById('clientName').value;
-    var phone = document.getElementById('clientPhone').value;
-    var topic = document.getElementById('clientTopic').value || 'לא צוין';
+    function sendWhatsApp() {
+        var name = document.getElementById('clientName').value.trim();
+        var phone = document.getElementById('clientPhone').value.trim();
+        var topic = document.getElementById('clientTopic').value || 'לא צוין';
 
-    // שולח ל-Make ול-CRM
-    sendToMake(name, phone, topic);
+        if (!name || !phone) {
+              alert('נא למלא שם וטלפון.');
+              return;
+        }
 
-    var msg = encodeURIComponent(
-      'שלום! פנייה חדשה מדף הנחיתה:\n' +
-      'שם: ' + name + '\n' +
-      'טלפון: ' + phone + '\n' +
-      'נושא: ' + topic
-    );
-    var waUrl = 'https://wa.me/972522471510?text=' + msg;
-    document.getElementById('leadForm').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-    window.location.href = waUrl;
-  }
-</script>
+        sendToMake(name, phone, topic);
+
+        var msg = encodeURIComponent(
+              'שלום! פנייה חדשה מדף הנחיתה:\n' +
+              'שם: ' + name + '\n' +
+              'טלפון: ' + phone + '\n' +
+              'נושא: ' + topic
+            );
+        var waUrl = 'https://wa.me/972522471510?text=' + msg;
+        document.getElementById('leadForm').style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+        window.location.href = waUrl;
+    }
+  </script>
+
+  </body>
+</html>
