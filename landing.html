@@ -1,167 +1,34 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>מרכז האופניים מזרחי | מבצע מיוחד - עפולה</title>h
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
-  <style>hh
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Heebo', sans-serif; background: #111; color: #fff; direction: rtl; overflow-x: hidden; }
-    .hero { min-height: 100vh; background: linear-gradient(135deg, #111 0%, #1a1a1a 50%, #0d0d0d 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(255,102,0,0.18) 0%, transparent 70%); pointer-events: none; }
-    .hero-logo-wrap { width: 200px; height: 200px; border-radius: 50%; border: 4px solid rgba(255,102,0,0.7); box-shadow: 0 0 50px rgba(255,102,0,0.4), 0 0 0 10px rgba(255,102,0,0.07); margin-bottom: 28px; position: relative; z-index: 1; overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center; }
-    .hero-logo-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; }
-    .badge { display: inline-block; background: rgba(255,102,0,0.15); border: 1.5px solid #ff6600; color: #ff6600; font-size: 0.85rem; font-weight: 600; padding: 7px 22px; border-radius: 50px; margin-bottom: 28px; position: relative; z-index: 1; }
-    .hero h1 { font-size: clamp(2.6rem, 7vw, 5rem); font-weight: 900; line-height: 1.1; margin-bottom: 18px; position: relative; z-index: 1; }
-    .hero h1 span { color: #ff6600; }
-    .hero > p { font-size: clamp(1rem, 2.5vw, 1.3rem); color: #ccc; max-width: 560px; line-height: 1.7; margin-bottom: 40px; position: relative; z-index: 1; }
-    .form-card { background: #1c1c1c; border: 1px solid rgba(255,102,0,0.25); border-radius: 20px; padding: 38px 36px; width: 100%; max-width: 460px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); position: relative; z-index: 1; }
-    .form-card h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 6px; color: #fff; }
-    .form-card .sub { font-size: 0.9rem; color: #999; margin-bottom: 26px; }
-    .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #ccc; margin-bottom: 7px; }
-    .form-group input, .form-group select { width: 100%; background: #252525; border: 1.5px solid #333; border-radius: 10px; padding: 13px 16px; font-size: 1rem; color: #fff; font-family: 'Heebo', sans-serif; transition: border-color 0.2s; outline: none; }
-    .form-group input::placeholder { color: #666; }
-    .form-group input:focus, .form-group select:focus { border-color: #ff6600; }
-    .form-group select option { background: #252525; }
-    .btn-submit { width: 100%; background: #25D366; color: #fff; border: none; border-radius: 12px; padding: 16px; font-size: 1.1rem; font-weight: 700; cursor: pointer; margin-top: 8px; transition: background 0.2s, transform 0.15s; font-family: 'Heebo', sans-serif; display: flex; align-items: center; justify-content: center; gap: 10px; }
-    .btn-submit:hover { background: #1ebe5d; transform: translateY(-2px); }
-    .privacy-note { font-size: 0.75rem; color: #666; text-align: center; margin-top: 14px; }
-    .stats-bar { background: #ff6600; padding: 28px 20px; display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
-    .stat-item { text-align: center; }
-    .stat-item strong { display: block; font-size: 2rem; font-weight: 900; color: #fff; }
-    .stat-item span { font-size: 0.85rem; color: rgba(255,255,255,0.85); font-weight: 600; }
-    .why-section { padding: 70px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
-    .section-tag { display: inline-block; background: rgba(255,102,0,0.1); color: #ff6600; font-size: 0.8rem; font-weight: 700; padding: 5px 16px; border-radius: 50px; margin-bottom: 16px; }
-    .why-section h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 50px; line-height: 1.2; }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 24px; }
-    .why-card { background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 16px; padding: 32px 20px; transition: border-color 0.2s, transform 0.2s; }
-    .why-card:hover { border-color: rgba(255,102,0,0.4); transform: translateY(-4px); }
-    .why-icon { font-size: 2.2rem; margin-bottom: 14px; }
-    .why-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: #ff6600; }
-    .why-card p { font-size: 0.88rem; color: #999; line-height: 1.6; }
-    .services-section { background: #161616; padding: 70px 20px; }
-    .services-inner { max-width: 900px; margin: 0 auto; text-align: center; }
-    .services-inner h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 48px; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-    .service-item { background: #1e1e1e; border-radius: 14px; padding: 28px 18px; border: 1px solid #2a2a2a; transition: border-color 0.2s; }
-    .service-item:hover { border-color: #ff6600; }
-    .service-item .icon { font-size: 2rem; margin-bottom: 12px; }
-    .service-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-    .service-item p { font-size: 0.82rem; color: #888; line-height: 1.6; }
-    .offer-section { background: linear-gradient(135deg, #ff6600 0%, #e55500 100%); padding: 70px 20px; text-align: center; }
-    .offer-section h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; color: #fff; margin-bottom: 14px; }
-    .offer-section .offer-desc { font-size: 1.1rem; color: rgba(255,255,255,0.9); max-width: 500px; margin: 0 auto 36px; line-height: 1.6; }
-    .offer-list { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 40px; padding: 0; }
-    .offer-list li { background: rgba(0,0,0,0.2); border: 1.5px solid rgba(255,255,255,0.3); border-radius: 50px; padding: 10px 22px; font-size: 0.95rem; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 8px; }
-    .btn-cta { display: inline-block; background: #fff; color: #ff6600; border-radius: 50px; padding: 18px 44px; font-size: 1.15rem; font-weight: 800; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
-    .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
-    footer { background: #0d0d0d; padding: 40px 20px; text-align: center; }
-    footer .logo-text { font-size: 1.4rem; font-weight: 900; margin-bottom: 10px; }
-    footer .logo-text span { color: #ff6600; }
-    footer p { color: #666; font-size: 0.85rem; margin-bottom: 6px; }
-    footer .links a { color: #888; text-decoration: none; font-size: 0.85rem; margin: 0 10px; transition: color 0.2s; }
-    footer .links a:hover { color: #ff6600; }
-    .success-msg { display: none; text-align: center; padding: 20px; }
-    .success-msg .check { font-size: 3rem; margin-bottom: 14px; }
-    .success-msg h3 { font-size: 1.4rem; font-weight: 800; color: #25D366; margin-bottom: 8px; }
-    .success-msg p { font-size: 0.95rem; color: #bbb; }
-  </style>
-</head>
-<body>
-<section class="hero">
-  <div class="hero-logo-wrap">
-    <img src="%D7%9C%D7%95%D7%92%D7%95.png" alt="לוגו מרכז האופניים מזרחי" />
-  </div>
-  <div class="badge">&#10022; עפולה והסביבה - משרתים אתכם מ-1989</div>
-  <h1>מרכז האופניים<br/><span>מזרחי</span></h1>
-  <p>35 שנה של אופניים, מסירות ואהבה לרכיבה. מכירה, תיקון, ייעוץ ואביזרים - הכל תחת קורת גג אחת.</p>
-  <div class="form-card">
-    <h2>קבלו הצעת מחיר אישית</h2>
-    <p class="sub">השאירו פרטים ונחזור אליכם תוך שעה</p>
-    <form id="leadForm">
-      <div class="form-group"><label>שם מלא</label><input type="text" id="clientName" placeholder="למשל: יוסי כהן" required /></div>
-      <div class="form-group"><label>טלפון</label><input type="tel" id="clientPhone" placeholder="05X-XXXXXXX" required /></div>
-      <div class="form-group"><label>מה מעניין אותך?</label>
-        <select id="clientTopic"><option value="">בחר/י נושא</option><option>קניית אופניים חדשים</option><option>תיקון ותחזוקה</option><option>אביזרים וחלקי חילוף</option><option>ייעוץ מקצועי</option></select>
-      </div>
-      <button class="btn-submit" type="button" onclick="sendWhatsApp()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.135 1.528 5.88L0 24l6.306-1.504A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.374l-.36-.214-3.724.888.936-3.617-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
-        שלח לי הודעה בוואטסאפ
-      </button>
-    </form>
-    <div class="success-msg" id="successMsg">
-      <div class="check">&#128232;</div>
-      <h3>מעביר אותך לוואטסאפ...</h3>
-      <p>אם לא נפתח אוטומטית,<br/>חייגו: <a href="tel:0522471510" style="color:#25D366;">052-247-1510</a></p>
-    </div>
-    <p class="privacy-note">&#128274; הפרטים שמורים ואינם מועברים לגורם שלישי</p>
-  </div>
-</section>
-<div class="stats-bar">
-  <div class="stat-item"><strong>+35</strong><span>שנות ניסיון</span></div>
-  <div class="stat-item"><strong>אלפי</strong><span>לקוחות מרוצים</span></div>
-  <div class="stat-item"><strong>100%</strong><span>שירות אישי ומקצועי</span></div>
-  <div class="stat-item"><strong>עפולה</strong><span>רחוב הרב לוין</span></div>
-</div>
-<section class="why-section">
-  <div class="section-tag">למה לבחור בנו</div>
-  <h2>למה אלפי לקוחות חוזרים<br/>אלינו שנה אחרי שנה?</h2>
-  <div class="why-grid">
-    <div class="why-card"><div class="why-icon">&#127942;</div><h3>35 שנות ניסיון</h3><p>ניסיון של עשרות שנים בשטח - ראינו כל תקלה וכל סוג אופניים.</p></div>
-    <div class="why-card"><div class="why-icon">&#8362;</div><h3>מחיר הוגן תמיד</h3><p>אין מחירים מנופחים ואין הפתעות בקופה. שקיפות מלאה.</p></div>
-    <div class="why-card"><div class="why-icon">&#10084;</div><h3>יחס אישי ומשפחתי</h3><p>אצלנו לא תהיה מספר בתור. נזכור את שמך ואת האופניים שלך.</p></div>
-    <div class="why-card"><div class="why-icon">&#10003;</div><h3>מקצוענות ללא פשרות</h3><p>עבודה נקייה, חלקים איכותיים ואחריות על כל עבודה.</p></div>
-  </div>
-</section>
-<section class="services-section">
-  <div class="services-inner">
-    <div class="section-tag">השירותים שלנו</div>
-    <h2>כל מה שאופניים צריכים - במקום אחד</h2>
-    <div class="services-grid">
-      <div class="service-item"><div class="icon">&#128690;</div><h3>מכירת אופניים חדשים</h3><p>מבחר עשיר לכל גיל וכל שטח - ילדים, עיר, הרים, חשמליים ועוד.</p></div>
-      <div class="service-item"><div class="icon">&#128295;</div><h3>תיקון ותחזוקה</h3><p>מעבדה מאובזרת ומכונאי מנוסה שיחזיר את האופניים לכביש מהר.</p></div>
-      <div class="service-item"><div class="icon">&#9881;</div><h3>אביזרים וחלקים</h3><p>קסדות, נעילות, תאורה, צמיגים וכל דבר שתחשבו עליו.</p></div>
-      <div class="service-item"><div class="icon">&#128172;</div><h3>ייעוץ מקצועי חינם</h3><p>לא בטוחים מה לקנות? נשב איתכם ונמליץ בכנות - בלי לחץ.</p></div>
-    </div>
-  </div>
-</section>
-<section class="offer-section">
-  <h2>התקשרו עכשיו וקבלו ייעוץ חינם!</h2>
-  <p class="offer-desc">הצוות שלנו זמין לענות על כל שאלה - בוא לחנות או התקשר ונשמח לעזור.</p>
-  <ul class="offer-list">
-    <li>&#9989; ייעוץ מקצועי חינם</li>
-    <li>&#9989; הצעת מחיר ללא התחייבות</li>
-    <li>&#9989; שירות מהיר ואמין</li>
-    <li>&#9989; אחריות על כל עבודה</li>
-  </ul>
-  <a href="tel:0522471510" class="btn-cta">&#128222; 052-247-1510 - חייגו עכשיו</a>
-</section>
-<footer>
-  <div style="width:70px; height:70px; border-radius:50%; overflow:hidden; background:#fff; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; opacity:0.85;">
-    <img src="%D7%9C%D7%95%D7%92%D7%95.png" alt="לוגו" style="width:100%; height:100%; object-fit:contain;" />
-  </div>
-  <div class="logo-text">מרכז האופניים <span>מזרחי</span></div>
-  <p>רחוב הרב לוין, עפולה | 052-247-1510</p>
-  <p style="margin-bottom:14px;">א'-ב'-ד'-ה': 09:00-18:00 | ג': 09:00-14:00 | ו': 09:00-13:00</p>
-  <div class="links"><a href="https://esrd120-bit.github.io/mizrahi-bikes/">לאתר הראשי</a></div>
-  <p style="margin-top:20px; color:#444; font-size:0.8rem;">&#169; 2024 כל הזכויות שמורות למרכז האופניים מזרחי</p>
-</footer>
 <script>
+  async function sendToMake(name, phone, topic) {
+    const WEBHOOK_URL = 'REPLACE_WITH_YOUR_MAKE_WEBHOOK_URL';
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          phone: phone,
+          interest: topic,
+          source: 'דף נחיתה'
+        })
+      });
+    } catch (e) {
+      console.log('Make webhook error:', e);
+    }
+  }
+
   function sendWhatsApp() {
-    
     var name = document.getElementById('clientName').value;
     var phone = document.getElementById('clientPhone').value;
     var topic = document.getElementById('clientTopic').value || 'לא צוין';
-    var msg = encodeURIComponent(
-      'שלום! פנייה חדשה מדף הנחיתה:
 
-' +
-      'שם: ' + name + '
-' +
-      'טלפון: ' + phone + '
-' +
+    // שולח ל-Make ול-CRM
+    sendToMake(name, phone, topic);
+
+    var msg = encodeURIComponent(
+      'שלום! פנייה חדשה מדף הנחיתה:\n' +
+      'שם: ' + name + '\n' +
+      'טלפון: ' + phone + '\n' +
       'נושא: ' + topic
     );
     var waUrl = 'https://wa.me/972522471510?text=' + msg;
@@ -170,5 +37,3 @@
     window.location.href = waUrl;
   }
 </script>
-</body>
-</html>
