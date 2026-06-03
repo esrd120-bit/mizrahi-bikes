@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>מרכז האופניים מזרחי – עפולה</title>
+<title>××¨×× ××××¤× ××× ×××¨×× â ×¢×¤×××</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;900&display=swap" rel="stylesheet" />
@@ -77,10 +77,40 @@ nav{
     0 0 80px rgba(244,124,32,0.15);
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
+  position:relative;
   animation:pulse-glow 3s ease-in-out infinite;
 }
 .logo-circle img{
-  width:88%;height:88%;object-fit:contain;
+  width:105%;height:105%;object-fit:contain;position:relative;z-index:2;
+}
+
+/* VALLEY SVG BACKGROUND */
+.logo-valley-bg{
+  position:absolute;bottom:0;left:0;width:100%;height:55%;z-index:1;
+}
+.valley-sky{animation:sky-shift 8s ease-in-out infinite alternate;}
+.valley-sun{animation:sun-rise 8s ease-in-out infinite alternate;}
+.valley-cloud1{animation:cloud-move1 12s linear infinite;}
+.valley-cloud2{animation:cloud-move2 16s linear infinite;}
+.valley-hills-far{animation:hills-sway 10s ease-in-out infinite alternate;}
+.valley-fields{animation:fields-wave 6s ease-in-out infinite alternate;}
+@keyframes sky-shift{
+  0%{fill:#ffe4b0}100%{fill:#ffcf80}
+}
+@keyframes sun-rise{
+  0%{transform:translateY(0px)}100%{transform:translateY(-4px)}
+}
+@keyframes cloud-move1{
+  0%{transform:translateX(-30px)}100%{transform:translateX(30px)}
+}
+@keyframes cloud-move2{
+  0%{transform:translateX(20px)}100%{transform:translateX(-20px)}
+}
+@keyframes hills-sway{
+  0%{transform:translateX(0px)}100%{transform:translateX(3px)}
+}
+@keyframes fields-wave{
+  0%{transform:scaleY(1)}100%{transform:scaleY(1.03)}
 }
 @keyframes pulse-glow{
   0%,100%{box-shadow:0 0 0 8px rgba(244,124,32,0.15),0 0 40px rgba(244,124,32,0.35),0 0 80px rgba(244,124,32,0.15)}
@@ -296,12 +326,12 @@ footer{
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <img src="לוגו.png" alt="לוגו מרכז האופניים מזרחי" onerror="this.style.display='none'">
-    <div class="nav-text">מרכז האופניים <span>מזרחי</span></div>
+    <img src="××××.png" alt="×××× ××¨×× ××××¤× ××× ×××¨××" onerror="this.style.display='none'">
+    <div class="nav-text">××¨×× ××××¤× ××× <span>×××¨××</span></div>
   </div>
   <div class="nav-links">
-    <a href="tel:0522471510" class="nav-phone">📞 052-247-1510</a>
-    <a href="#contact" class="nav-cta">השאר פרטים</a>
+    <a href="tel:0522471510" class="nav-phone">ð 052-247-1510</a>
+    <a href="#contact" class="nav-cta">××©××¨ ×¤×¨×××</a>
   </div>
 </nav>
 
@@ -310,44 +340,93 @@ footer{
   <div class="hero-inner">
     <div class="logo-circle-wrap">
       <div class="logo-circle">
-        <img src="לוגו.png" alt="מרכז האופניים מזרחי" />
+        <svg class="logo-valley-bg" viewBox="0 0 280 154" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+          <!-- Sky gradient -->
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#87CEEB"/>
+              <stop offset="100%" stop-color="#FFD580"/>
+            </linearGradient>
+            <linearGradient id="hillGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5a8a3c"/>
+              <stop offset="100%" stop-color="#3d6b28"/>
+            </linearGradient>
+            <linearGradient id="fieldGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#a8d855"/>
+              <stop offset="100%" stop-color="#7bb83a"/>
+            </linearGradient>
+          </defs>
+          <!-- Sky -->
+          <rect class="valley-sky" width="280" height="154" fill="url(#skyGrad)"/>
+          <!-- Sun -->
+          <circle class="valley-sun" cx="220" cy="38" r="18" fill="#FFD700" opacity="0.9"/>
+          <circle cx="220" cy="38" r="22" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.3"/>
+          <!-- Clouds -->
+          <g class="valley-cloud1">
+            <ellipse cx="70" cy="35" rx="28" ry="10" fill="white" opacity="0.85"/>
+            <ellipse cx="85" cy="30" rx="18" ry="9" fill="white" opacity="0.85"/>
+            <ellipse cx="55" cy="32" rx="16" ry="8" fill="white" opacity="0.85"/>
+          </g>
+          <g class="valley-cloud2">
+            <ellipse cx="170" cy="50" rx="22" ry="8" fill="white" opacity="0.7"/>
+            <ellipse cx="182" cy="45" rx="14" ry="7" fill="white" opacity="0.7"/>
+          </g>
+          <!-- Far mountains (Mount Tabor style - dome shaped) -->
+          <g class="valley-hills-far">
+            <path d="M0 100 Q40 50 80 90 Q120 40 160 85 Q200 55 240 88 Q260 78 280 92 L280 154 L0 154 Z" fill="#6B8E5E" opacity="0.7"/>
+          </g>
+          <!-- Near hills -->
+          <path d="M0 110 Q50 80 100 105 Q150 75 200 108 Q240 90 280 110 L280 154 L0 154 Z" fill="url(#hillGrad)" opacity="0.9"/>
+          <!-- Fields / valley floor -->
+          <g class="valley-fields">
+            <path d="M0 128 Q70 118 140 126 Q210 118 280 128 L280 154 L0 154 Z" fill="url(#fieldGrad)"/>
+          </g>
+          <!-- Small trees -->
+          <rect x="108" y="108" width="4" height="14" fill="#3d5a28"/>
+          <polygon points="110,96 104,112 116,112" fill="#4a7a32"/>
+          <rect x="155" y="112" width="3" height="12" fill="#3d5a28"/>
+          <polygon points="156.5,100 151,114 162,114" fill="#4a7a32"/>
+          <rect x="55" y="115" width="3" height="11" fill="#3d5a28"/>
+          <polygon points="56.5,104 51,116 62,116" fill="#4a7a32"/>
+        </svg>
+        <img src="××××.png" alt="××¨×× ××××¤× ××× ×××¨××" />
       </div>
     </div>
-    <div class="hero-badge">⭐ עפולה והסביבה – משרתים אתכם מ-1989</div>
-    <h1>מרכז האופניים<br><span>מזרחי</span></h1>
-    <p>35 שנה של אופניים, מסירות ואהבה לרכיבה. מכירה, תיקון, יעוץ ואביזרים – הכל תחת קורת גג אחת.</p>
+    <div class="hero-badge">â­ ×¢×¤××× ×××¡×××× â ××©×¨×ª×× ××ª×× ×-1989</div>
+    <h1>××¨×× ××××¤× ×××<br><span>×××¨××</span></h1>
+    <p>35 ×©× × ×©× ×××¤× ×××, ××¡××¨××ª ××××× ××¨××××. ××××¨×, ×ª××§××, ××¢××¥ ××××××¨×× â ××× ×ª××ª ×§××¨×ª ×× ×××ª.</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary">📋 השאר פרטים עכשיו</a>
-      <a href="tel:0522471510" class="btn-secondary">📞 052-247-1510</a>
+      <a href="#contact" class="btn-primary">ð ××©××¨ ×¤×¨××× ×¢××©××</a>
+      <a href="tel:0522471510" class="btn-secondary">ð 052-247-1510</a>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
 <section class="services">
-  <p class="section-label">השירותים שלנו</p>
-  <h2 class="section-title">הכל במקום אחד</h2>
-  <p class="section-sub">כל מה שאופניים צריכים – עם ידיים מקצועיות ולב גדול.</p>
+  <p class="section-label">××©××¨××ª×× ×©×× ×</p>
+  <h2 class="section-title">××× ×××§×× ×××</h2>
+  <p class="section-sub">×× ×× ×©×××¤× ××× ×¦×¨×××× â ×¢× ××××× ××§×¦××¢×××ª ××× ××××.</p>
   <div class="services-grid">
     <div class="service-card">
-      <span class="service-icon">🚲</span>
-      <h3>מכירת אופניים</h3>
-      <p>מבחר רחב של אופניים חשמליים, הרריים ועירוניים ממיטב המותגים.</p>
+      <span class="service-icon">ð²</span>
+      <h3>××××¨×ª ×××¤× ×××</h3>
+      <p>××××¨ ×¨×× ×©× ×××¤× ××× ××©×××××, ××¨×¨××× ××¢××¨×× ××× ××××× ××××ª×××.</p>
     </div>
     <div class="service-card">
-      <span class="service-icon">🔧</span>
-      <h3>תיקון ושירות</h3>
-      <p>מוסך מקצועי לכל סוגי האופניים. תיקון מהיר עם אחריות.</p>
+      <span class="service-icon">ð§</span>
+      <h3>×ª××§×× ××©××¨××ª</h3>
+      <p>×××¡× ××§×¦××¢× ××× ×¡××× ××××¤× ×××. ×ª××§×× ××××¨ ×¢× ×××¨×××ª.</p>
     </div>
     <div class="service-card">
-      <span class="service-icon">⚡</span>
-      <h3>אופניים חשמליים</h3>
-      <p>מומחים לאופניים חשמליים – מכירה, תיקון, ושדרוג סוללות.</p>
+      <span class="service-icon">â¡</span>
+      <h3>×××¤× ××× ××©×××××</h3>
+      <p>×××××× ××××¤× ××× ××©××××× â ××××¨×, ×ª××§××, ××©××¨×× ×¡×××××ª.</p>
     </div>
     <div class="service-card">
-      <span class="service-icon">🪖</span>
-      <h3>אביזרים וציוד</h3>
-      <p>קסדות, מנעולים, תאורה ועוד – כל מה שרוכב צריך.</p>
+      <span class="service-icon">ðª</span>
+      <h3>×××××¨×× ××¦×××</h3>
+      <p>×§×¡×××ª, ×× ×¢××××, ×ª×××¨× ××¢×× â ×× ×× ×©×¨××× ×¦×¨××.</p>
     </div>
   </div>
 </section>
@@ -357,55 +436,55 @@ footer{
   <div class="stats-grid">
     <div>
       <div class="stat-num">35+</div>
-      <div class="stat-label">שנות ניסיון</div>
+      <div class="stat-label">×©× ××ª × ××¡×××</div>
     </div>
     <div>
-      <div class="stat-num">אלפי</div>
-      <div class="stat-label">לקוחות מרוצים</div>
+      <div class="stat-num">×××¤×</div>
+      <div class="stat-label">××§××××ª ××¨××¦××</div>
     </div>
     <div>
       <div class="stat-num">100%</div>
-      <div class="stat-label">שירות אישי</div>
+      <div class="stat-label">×©××¨××ª ×××©×</div>
     </div>
     <div>
       <div class="stat-num">1989</div>
-      <div class="stat-label">שנת הקמה</div>
+      <div class="stat-label">×©× ×ª ××§××</div>
     </div>
   </div>
 </section>
 
 <!-- WHY US -->
 <section class="why">
-  <p class="section-label">למה לבחור בנו</p>
-  <h2 class="section-title">המומחים שלך לאופניים</h2>
-  <p class="section-sub">אנחנו לא רק מוכרים אופניים – אנחנו חיים את זה.</p>
+  <p class="section-label">××× ×××××¨ ×× ×</p>
+  <h2 class="section-title">××××××× ×©×× ××××¤× ×××</h2>
+  <p class="section-sub">×× ×× × ×× ×¨×§ ××××¨×× ×××¤× ××× â ×× ×× × ×××× ××ª ××.</p>
   <div class="why-grid">
     <div class="why-item">
-      <div class="why-icon">🏆</div>
+      <div class="why-icon">ð</div>
       <div>
-        <h4>ניסיון של 35 שנה</h4>
-        <p>מהעסקים הותיקים ביותר לאופניים בעפולה והסביבה.</p>
+        <h4>× ××¡××× ×©× 35 ×©× ×</h4>
+        <p>×××¢×¡×§×× ×××ª××§×× ××××ª×¨ ××××¤× ××× ××¢×¤××× ×××¡××××.</p>
       </div>
     </div>
     <div class="why-item">
-      <div class="why-icon">💬</div>
+      <div class="why-icon">ð¬</div>
       <div>
-        <h4>שירות אישי</h4>
-        <p>כל לקוח מקבל יחס אישי ומקצועי מהכניסה ועד היציאה.</p>
+        <h4>×©××¨××ª ×××©×</h4>
+        <p>×× ××§×× ××§×× ×××¡ ×××©× ×××§×¦××¢× ×××× ××¡× ××¢× ×××¦×××.</p>
       </div>
     </div>
     <div class="why-item">
-      <div class="why-icon">💰</div>
+      <div class="why-icon">ð°</div>
       <div>
-        <h4>מחיר הוגן</h4>
-        <p>ללא עמלות נסתרות, עם הצעת מחיר שקופה ומכובדת.</p>
+        <h4>××××¨ ××××</h4>
+        <p>××× ×¢××××ª × ×¡×ª×¨××ª, ×¢× ××¦×¢×ª ××××¨ ×©×§××¤× ×××××××ª.</p>
       </div>
     </div>
     <div class="why-item">
-      <div class="why-icon">🛡️</div>
+      <div class="why-icon">ð¡ï¸</div>
       <div>
-        <h4>אחריות מלאה</h4>
-        <p>כל תיקון ומוצר מגיע עם אחריות מלאה ושירות לאחר מכן.</p>
+        <h4>×××¨×××ª ××××</h4>
+        <p>×× ×ª××§×× ××××¦×¨ ××××¢ ×¢× ×××¨×××ª ×××× ××©××¨××ª ××××¨ ×××.</p>
       </div>
     </div>
   </div>
@@ -416,57 +495,57 @@ footer{
   <div class="contact-grid">
     <!-- INFO -->
     <div class="contact-info">
-      <p class="section-label">צרו קשר</p>
-      <h2>דברו איתנו<br><span>עכשיו</span></h2>
-      <p>מלאו את הטופס ונחזור אליכם בהקדם, או שלחו לנו וואטסאפ ישירות.</p>
+      <p class="section-label">×¦×¨× ×§×©×¨</p>
+      <h2>×××¨× ×××ª× ×<br><span>×¢××©××</span></h2>
+      <p>×××× ××ª ××××¤×¡ ×× ××××¨ ××××× ×××§××, ×× ×©××× ×× × ×××××¡××¤ ××©××¨××ª.</p>
       <div class="info-item">
-        <div class="info-icon">📍</div>
-        <span>רחוב הרב לוין 11, עפולה</span>
+        <div class="info-icon">ð</div>
+        <span>×¨××× ××¨× ×××× 11, ×¢×¤×××</span>
       </div>
       <div class="info-item">
-        <div class="info-icon">📞</div>
+        <div class="info-icon">ð</div>
         <a href="tel:0522471510" style="color:inherit">052-247-1510</a>
       </div>
       <div class="info-item">
-        <div class="info-icon">🕐</div>
-        <span>א׳–ה׳: 9:00–18:00 | ו׳: 9:00–13:00</span>
+        <div class="info-icon">ð</div>
+        <span>××³â××³: 9:00â18:00 | ××³: 9:00â13:00</span>
       </div>
       <a href="https://wa.me/972522471510" target="_blank" class="wa-big">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        שלח הודעה בוואטסאפ
+        ×©×× ××××¢× ××××××¡××¤
       </a>
     </div>
 
     <!-- FORM / CRM -->
     <div class="contact-form-box">
-      <div class="crm-badge">📊 מערכת CRM</div>
-      <h3>השאר פרטים ו<span>נחזור אליך</span></h3>
+      <div class="crm-badge">ð ××¢×¨××ª CRM</div>
+      <h3>××©××¨ ×¤×¨××× ×<span>× ××××¨ ××××</span></h3>
       <div class="form-group">
-        <label>שם מלא *</label>
-        <input type="text" id="crm-name" placeholder="שם פרטי ומשפחה" />
+        <label>×©× ××× *</label>
+        <input type="text" id="crm-name" placeholder="×©× ×¤×¨×× ×××©×¤××" />
       </div>
       <div class="form-group">
-        <label>מספר טלפון *</label>
+        <label>××¡×¤×¨ ×××¤×× *</label>
         <input type="tel" id="crm-phone" placeholder="05X-XXXXXXX" />
       </div>
       <div class="form-group">
-        <label>נושא פנייה</label>
+        <label>× ××©× ×¤× ×××</label>
         <select id="crm-subject">
-          <option value="">בחרו נושא</option>
-          <option>רכישת אופניים חשמליים</option>
-          <option>רכישת אופניים רגילים</option>
-          <option>תיקון ושירות</option>
-          <option>אביזרים וציוד</option>
-          <option>יעוץ</option>
-          <option>אחר</option>
+          <option value="">×××¨× × ××©×</option>
+          <option>×¨×××©×ª ×××¤× ××× ××©×××××</option>
+          <option>×¨×××©×ª ×××¤× ××× ×¨×××××</option>
+          <option>×ª××§×× ××©××¨××ª</option>
+          <option>×××××¨×× ××¦×××</option>
+          <option>××¢××¥</option>
+          <option>×××¨</option>
         </select>
       </div>
       <div class="form-group">
-        <label>הערות</label>
-        <textarea id="crm-note" placeholder="ספר לנו יותר..."></textarea>
+        <label>××¢×¨××ª</label>
+        <textarea id="crm-note" placeholder="×¡×¤×¨ ×× × ×××ª×¨..."></textarea>
       </div>
-      <button class="btn-submit" onclick="submitLead()">📲 שלח וואטסאפ + שמור ב-CRM</button>
-      <div class="success-box" id="successMsg">✅ הפרטים נשמרו! פותחים וואטסאפ...</div>
+      <button class="btn-submit" onclick="submitLead()">ð² ×©×× ×××××¡××¤ + ×©×××¨ ×-CRM</button>
+      <div class="success-box" id="successMsg">â ××¤×¨××× × ×©××¨×! ×¤××ª××× ×××××¡××¤...</div>
     </div>
   </div>
 </section>
@@ -474,10 +553,10 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div style="margin-bottom:8px">
-    <span class="footer-brand">מרכז האופניים מזרחי</span>
+    <span class="footer-brand">××¨×× ××××¤× ××× ×××¨××</span>
   </div>
-  <div>רחוב הרב לוין 11, עפולה | 052-247-1510</div>
-  <div style="margin-top:10px;font-size:0.8rem;color:#444">© 2026 כל הזכויות שמורות</div>
+  <div>×¨××× ××¨× ×××× 11, ×¢×¤××× | 052-247-1510</div>
+  <div style="margin-top:10px;font-size:0.8rem;color:#444">Â© 2026 ×× ×××××××ª ×©×××¨××ª</div>
 </footer>
 
 <script>
@@ -499,7 +578,7 @@ function submitLead() {
   const note = document.getElementById('crm-note').value.trim();
 
   if (!name || !phone) {
-    alert('אנא מלאו שם וטלפון');
+    alert('×× × ×××× ×©× ××××¤××');
     return;
   }
 
@@ -508,17 +587,17 @@ function submitLead() {
     id: Date.now(),
     name, phone, subject, note,
     date: new Date().toLocaleString('he-IL'),
-    status: 'חדש'
+    status: '×××©'
   };
   saveLead(lead);
 
   // Open WhatsApp
   const msg = encodeURIComponent(
-    'שלום! שמי ' + name +
-    ', מספרי ' + phone +
-    (subject ? ', מתעניין/ת ב: ' + subject : '') +
-    (note ? '. הערה: ' + note : '') +
-    '. אשמח לקבל פרטים נוספים.'
+    '×©×××! ×©×× ' + name +
+    ', ××¡×¤×¨× ' + phone +
+    (subject ? ', ××ª×¢× ×××/×ª ×: ' + subject : '') +
+    (note ? '. ××¢×¨×: ' + note : '') +
+    '. ××©×× ××§×× ×¤×¨××× × ××¡×¤××.'
   );
   window.open('https://wa.me/972522471510?text=' + msg, '_blank');
 
