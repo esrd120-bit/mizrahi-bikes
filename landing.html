@@ -209,6 +209,7 @@
         }
 
         sendToMake(name, phone, topic);
+                try { var leads = JSON.parse(localStorage.getItem('mizrahi_crm_leads')) || []; leads.unshift({id: Date.now().toString(), date: new Date().toLocaleDateString('he-IL'), name: name, phone: phone, topic: topic, source: 'דף נחיתה', status: 'חדש', notes: ''}); localStorage.setItem('mizrahi_crm_leads', JSON.stringify(leads)); } catch(e) {}
 
         var msg = encodeURIComponent(
               'שלום! פנייה חדשה מדף הנחיתה:\n' +
