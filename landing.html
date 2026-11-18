@@ -289,6 +289,8 @@ footer{
   .hero-btns{flex-direction:column;align-items:center}
   .btn-primary,.btn-secondary{width:100%;text-align:center}
 }
+.legal-links { margin-top: 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; }
+.legal-links a { color: #aaaaaa; }
 </style>
 </head>
 <body>
@@ -442,15 +444,15 @@ footer{
       <div class="crm-badge">📊 מערכת CRM</div>
       <h3>השאר פרטים ו<span>נחזור אליך</span></h3>
       <div class="form-group">
-        <label>שם מלא *</label>
+        <label for="crm-name">שם מלא *</label>
         <input type="text" id="crm-name" placeholder="שם פרטי ומשפחה" />
       </div>
       <div class="form-group">
-        <label>מספר טלפון *</label>
+        <label for="crm-phone">מספר טלפון *</label>
         <input type="tel" id="crm-phone" placeholder="05X-XXXXXXX" />
       </div>
       <div class="form-group">
-        <label>נושא פנייה</label>
+        <label for="crm-subject">נושא פנייה</label>
         <select id="crm-subject">
           <option value="">בחרו נושא</option>
           <option>רכישת אופניים חשמליים</option>
@@ -462,7 +464,7 @@ footer{
         </select>
       </div>
       <div class="form-group">
-        <label>הערות</label>
+        <label for="crm-note">הערות</label>
         <textarea id="crm-note" placeholder="ספר לנו יותר..."></textarea>
       </div>
       <button class="btn-submit" onclick="submitLead()">📲 שלח וואטסאפ + שמור ב-CRM</button>
@@ -478,6 +480,7 @@ footer{
   </div>
   <div>רחוב הרב לוין 11, עפולה | 052-247-1510</div>
   <div style="margin-top:10px;font-size:0.8rem;color:#444">© 2026 כל הזכויות שמורות</div>
+<div class="legal-links" role="navigation" aria-label="מידע משפטי"><a href="legal.html#privacy">מדיניות פרטיות</a><a href="legal.html#terms">תקנון</a><a href="legal.html#cancellation">ביטולים והחזרות</a><a href="legal.html#cookies">מדיניות עוגיות</a><a href="legal.html#accessibility">הצהרת נגישות</a></div>
 </footer>
 
 <script>
