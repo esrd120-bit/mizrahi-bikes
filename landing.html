@@ -441,7 +441,6 @@ footer{
 
     <!-- FORM / CRM -->
     <div class="contact-form-box">
-      <div class="crm-badge">📊 מערכת CRM</div>
       <h3>השאר פרטים ו<span>נחזור אליך</span></h3>
       <div class="form-group">
         <label for="crm-name">שם מלא *</label>
@@ -467,8 +466,8 @@ footer{
         <label for="crm-note">הערות</label>
         <textarea id="crm-note" placeholder="ספר לנו יותר..."></textarea>
       </div>
-      <button class="btn-submit" onclick="submitLead()">📲 שלח וואטסאפ + שמור ב-CRM</button>
-      <div class="success-box" id="successMsg">✅ הפרטים נשמרו! פותחים וואטסאפ...</div>
+      <button class="btn-submit" onclick="submitLead()">📲 שלח בוואטסאפ</button>
+      <div class="success-box" id="successMsg">✅ פותחים וואטסאפ, רק ללחוץ "שלח"</div>
     </div>
   </div>
 </section>
@@ -484,16 +483,6 @@ footer{
 </footer>
 
 <script>
-// ===== CRM via localStorage =====
-function getLeads() {
-  try { return JSON.parse(localStorage.getItem('mizrahi_crm_leads') || '[]'); }
-  catch(e) { return []; }
-}
-function saveLead(lead) {
-  const leads = getLeads();
-  leads.unshift(lead);
-  localStorage.setItem('mizrahi_crm_leads', JSON.stringify(leads));
-}
 
 function submitLead() {
   const name = document.getElementById('crm-name').value.trim();
@@ -506,14 +495,6 @@ function submitLead() {
     return;
   }
 
-  // Save to CRM
-  const lead = {
-    id: Date.now(),
-    name, phone, subject, note,
-    date: new Date().toLocaleString('he-IL'),
-    status: 'חדש'
-  };
-  saveLead(lead);
 
   // Open WhatsApp
   const msg = encodeURIComponent(
